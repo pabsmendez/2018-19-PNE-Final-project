@@ -1,58 +1,108 @@
-# Example of getting information stored in github
-
-import http.client
-import json
+import http.server
 import socketserver
+from seq import Seq
 
-# -- API information
-HOSTNAME = "rest.ensembl.org"
-ENDPOINT = "/info/species?", "/karyotype", "/chromosomeLength", "/"
-Action = input("name in github: ")
-METHOD = "GET"
+PORT = 8004
 
-# -- Here we can define special headers if needed
-headers = {'User-Agent': 'http-client'}
 
-# -- Connect to the server
-# -- NOTICE it is an HTTPS connection!
-# -- If we do not specify the port, the standar one
-# -- will be used
-conn = http.client.HTTPSConnection(HOSTNAME)
+def doing_operations(msg):
+    processes = {}
+    msg = msg.split("&")
+    print(msg , 90)
+    seq = Seq(msg.pop(0).split("=")[-1].upper())
+    print(seq.strbases, "ok")
+    bases = "ACTG"
 
-# -- Send the request. No body (None)
-# -- Use the defined headers
-def do_GET(self):
-    socketserver.TCPServer.allow_reuse_address = True
+    # Check if the characters of the DNA sequence are all allowed
+    if not all(a in bases for a in seq.strbases):
+        processes = "ERROR"
+        return processes
 
-    if 'listSpecies' in self.path:
-        conn.request(METHOD, ENDPOINT[0] + Action, None, headers)
+    processes.update({"Seq": seq.strbases})
+    # The function makes the computations
+    base = ""
+    print(msg)
+    for request in msg:
+        print(request)
+        if "base" in request:
+            base += request[-1]
+        elif "count" in request:
+            operation = request.split("=")[-1]
+            print(operation)
+            process = seq.count(base)
+            processes.update({"Result for " + base + " " + operation: process})
+        elif "percentage" in request:
+            operation = request.split("=")[-1]
+            process = seq.percentage(base)
+            processes.update({"Result for " + base + " " + operation: process})
+        elif request == "chk=on":
+            process = seq.len()
+            processes.update({"Len": process})
 
-        # -- Wait for the server's response
-        r1 = conn.getresponse()
+    return processes
 
-        # -- Print the status
-        print()
-        print("Response received: ", end='')
-        print(r1.status, r1.reason)
 
-        # -- Read the response's body and close
-        # -- the connection
-        text_json = r1.read().decode("utf-8")
-        conn.close()
-    else:
-        conn.request(METHOD, ENDPOINT[1] + Action, None, headers)
+class TestHandler(http.server.BaseHTTPRequestHandler):
 
-        # -- Wait for the server's response
-        r2 = conn.getresponse()
+    def do_GET(self):
+        # -- printing the request  line
+        #termcolor.cprint(self.requestline, "green")
+        demand = self.requestline.split()[1]
+        print(demand)
+        progresses = demand.split("?")[-1]
+        print(progresses)
 
-        # -- Print the status
-        print()
-        print("Response received: ", end='')
-        print(r2.status, r2.reason)
+        if self.path.startswith("/seq"):
+            test = doing_operations(progresses)
+            if test == "ERROR":
+                f = open("error.html", 'r')
+                contents = f.read()
+                f.close()
+            else:
+                final_values = ""
+                for key, value in test.items():
+                    final_values += "<p>" + key + " : " + str(value) + "</p>"
 
-        # -- Read the response's body and close
-        # -- the connection
-        text_json2 = r2.read().decode("utf-8")
-        conn.close()
+                contents = """<!DOCTYPE html>
+                            <html lang="en">
+                            <head>
+                                <meta charset="UTF-8">
+                                <title>Results obtained</title>
+                            </head>
+                            <body>
+                             <h1>Result of operations</h1>
+                              {}
+                              <a href="/">Main page</a>
+                            </body>
+                            </html>""".format(final_values)
 
-    user = json.loads(text_json)
+        elif self.path == "/" or self.path == "/favicon.ico":
+            f = open("form.html", 'r')
+            contents = f.read()
+            f.close()
+
+        else:
+            f = open("error_P6.html", 'r')
+            contents = f.read()
+            f.close()
+
+        self.send_response(200)
+
+        self.send_header('Content-Type', 'text/html')
+        self.send_header('Content-length', len(str.encode(contents)))
+        self.end_headers()
+
+        # -- Sending the body of the response message
+        self.wfile.write(str.encode(contents))
+
+
+# -- Main programme
+with socketserver.TCPServer(("", PORT), TestHandler) as httpd:
+    print("Serving at PORT: {} ".format(PORT))
+    try:
+        httpd.serve_forever()
+
+    except KeyboardInterrupt:
+        httpd.server_close()
+
+print("The server is stopped")
