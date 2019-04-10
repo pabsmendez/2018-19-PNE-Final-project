@@ -1,10 +1,13 @@
 import http.server
 import socketserver
 from seq import Seq
-
-PORT = 8004
-
-
+import termcolor
+import requests
+PORT = 8000
+ENDPOINTS = "info/species"
+SERVER = "http://rest.ensembl.org/"
+header = {"Content-Type": "application/json"}
+socketserver.TCPServer.allow_reuse_address = True
 def doing_operations(msg):
     processes = {}
     msg = msg.split("&")
@@ -46,7 +49,7 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
 
     def do_GET(self):
         # -- printing the request  line
-        #termcolor.cprint(self.requestline, "green")
+        termcolor.cprint(self.requestline, "green")
         demand = self.requestline.split()[1]
         print(demand)
         progresses = demand.split("?")[-1]
@@ -80,7 +83,12 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
             f = open("form.html", 'r')
             contents = f.read()
             f.close()
-
+        elif "listSpecies" in self.path:
+            extension = ENDPOINTS
+            content = requests.get(SERVER + extension, headers=header)
+            contents = content.json()
+            # -- ahora deberíamos hacer un for para que unicamente coja de cada especie el nombre comun lo haga string y nos lo imprima
+            print(contents)
         else:
             f = open("error_P6.html", 'r')
             contents = f.read()
@@ -88,7 +96,7 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
 
         self.send_response(200)
 
-        self.send_header('Content-Type', 'text/html')
+        self.send_header('Content-Type', 'Text/plain')
         self.send_header('Content-length', len(str.encode(contents)))
         self.end_headers()
 
