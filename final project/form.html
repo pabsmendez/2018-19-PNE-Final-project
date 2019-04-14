@@ -5,21 +5,12 @@
     <title>ENSEMBLE PROJECT</title>
   </head>
   <body>
-    <h3>Example of different input elements</h3>
-
     <form action="listSpecies" method="get">
       This option returns the list of the species, if you want you can limit the number.
       <br><br>
-      Please, how many species do you want? <input type="number" name="limit">
-      <input type="submit" name="submit request">
+      Please, how many species do you want? <input type="number" name="limit" max="199" min="0">
+      <input type="submit">
       <br><br>
-      This option returns the karyotype of the specie that you prefer.
-      <br><br>
-      Please, write the name of the specie that you want to know his karyotype:
-      <input type="text" name="karyotype">
-      <input type="submit" name="submit request">
-      <br><br>
-    </form>
-
+      </form>
   </body>
 </html>
