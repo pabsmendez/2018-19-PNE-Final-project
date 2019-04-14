@@ -1,102 +1,63 @@
 import http.server
 import socketserver
-from seq import Seq
+# -- from seq import Seq
 import termcolor
 import requests
+# -- import sys
 PORT = 8000
 ENDPOINTS = "info/species"
 SERVER = "http://rest.ensembl.org/"
 header = {"Content-Type": "application/json"}
 socketserver.TCPServer.allow_reuse_address = True
-def doing_operations(msg):
-    processes = {}
-    msg = msg.split("&")
-    print(msg , 90)
-    seq = Seq(msg.pop(0).split("=")[-1].upper())
-    print(seq.strbases, "ok")
-    bases = "ACTG"
-
-    # Check if the characters of the DNA sequence are all allowed
-    if not all(a in bases for a in seq.strbases):
-        processes = "ERROR"
-        return processes
-
-    processes.update({"Seq": seq.strbases})
-    # The function makes the computations
-    base = ""
-    print(msg)
-    for request in msg:
-        print(request)
-        if "base" in request:
-            base += request[-1]
-        elif "count" in request:
-            operation = request.split("=")[-1]
-            print(operation)
-            process = seq.count(base)
-            processes.update({"Result for " + base + " " + operation: process})
-        elif "percentage" in request:
-            operation = request.split("=")[-1]
-            process = seq.percentage(base)
-            processes.update({"Result for " + base + " " + operation: process})
-        elif request == "chk=on":
-            process = seq.len()
-            processes.update({"Len": process})
-
-    return processes
 
 
 class TestHandler(http.server.BaseHTTPRequestHandler):
 
     def do_GET(self):
-        # -- printing the request  line
+        # -- printing the request  line.
         termcolor.cprint(self.requestline, "green")
-        demand = self.requestline.split()[1]
-        print(demand)
-        progresses = demand.split("?")[-1]
-        print(progresses)
 
-        if self.path.startswith("/seq"):
-            test = doing_operations(progresses)
-            if test == "ERROR":
-                f = open("error.html", 'r')
-                contents = f.read()
-                f.close()
-            else:
-                final_values = ""
-                for key, value in test.items():
-                    final_values += "<p>" + key + " : " + str(value) + "</p>"
-
-                contents = """<!DOCTYPE html>
-                            <html lang="en">
-                            <head>
-                                <meta charset="UTF-8">
-                                <title>Results obtained</title>
-                            </head>
-                            <body>
-                             <h1>Result of operations</h1>
-                              {}
-                              <a href="/">Main page</a>
-                            </body>
-                            </html>""".format(final_values)
-
-        elif self.path == "/" or self.path == "/favicon.ico":
+        # -- to detect which is the correct path.
+        if self.path == "/" or self.path == "/favicon.ico":
             f = open("form.html", 'r')
             contents = f.read()
             f.close()
         elif "listSpecies" in self.path:
             extension = ENDPOINTS
-            content = requests.get(SERVER + extension, headers=header)
-            contents = content.json()
-            # -- ahora deberíamos hacer un for para que unicamente coja de cada especie el nombre comun lo haga string y nos lo imprima
-            print(contents)
+            r = requests.get(SERVER + extension, headers=header)
+            # -- if not r.ok:r.raise_for_status() sys.exit()
+            decode = r.json()
+            # -- this exception action is to avoid an error when you write directly the limit in the browser
+            # or you only write the request /listSpecies.
+            try:
+                if 'json=1' in self.path:
+                    limit = self.path.split("=")[1].split("&")[0]
+                else:
+                    limit = self.path.split("=")[1]
+            except IndexError:
+                limit = 199
+
+            # -- to avoid a problem when you don't apply a limit.
+            if limit == "":
+                limit = len(decode['species'])
+            join = ''
+
+            # -- to write only the part of the listSpecies that we want from the API
+            # as many times as the client decide with the limit parameter.
+            for i in range(int(limit)):
+                join += "<li>" + 'scientific name:{},  \n common name: {}\n\n'\
+                    .format(decode['species'][i]['name'], decode['species'][i]['common_name'])
+
+            contents = str(join)
+
         else:
-            f = open("error_P6.html", 'r')
+            f = open("error.html", 'r')
             contents = f.read()
             f.close()
 
         self.send_response(200)
 
-        self.send_header('Content-Type', 'Text/plain')
+        self.send_header('Content-Type', 'Text/HTML')
         self.send_header('Content-length', len(str.encode(contents)))
         self.end_headers()
 
