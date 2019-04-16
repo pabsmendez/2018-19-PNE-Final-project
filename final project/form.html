@@ -1,10 +1,24 @@
 <!DOCTYPE html>
+
 <html lang="en" dir="ltr">
+
   <head>
+    <style>
+      table{
+      background-color:
+      }
+      form{
+      color: white
+      }
+      h1{
+      color: white
+      }
+    </style>
     <meta charset="utf-8">
     <title>ENSEMBLE PROJECT</title>
   </head>
-  <body>
+  <body style="background-color: SeaGreen" >
+  <h1>Final project for programming in enviroments network by Pablo Gomez de Salazar Mendez</h1>
     <form action="listSpecies" method="get">
       This option returns the list of the species, if you want you can limit the number.
       <br><br>
@@ -12,5 +26,19 @@
       <input type="submit">
       <br><br>
       </form>
+    <form action="karyotype" method="get">
+      What karyotype do you want??, please enter the specie that you want obtain the karyotype
+      <br><br>
+      Name of the specie: <input type="text" name="specie">
+      <input type="submit">
+      <br><br>
+    </form>
+   <form action="chromosomeLength" method="get">
+      What karyotype do you want??, please enter the specie that you want obtain the karyotype
+      <br><br>
+      Name of the specie: <input type="text" name="specie"> <input type="text" name="chromo">
+      <input type="submit">
+      <br><br>
+    </form>
   </body>
 </html>
