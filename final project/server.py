@@ -5,7 +5,7 @@ import termcolor
 import requests
 # -- import sys
 PORT = 8000
-ENDPOINTS = "info/species"
+ENDPOINTS = "info/species", "info/assembly/"
 SERVER = "http://rest.ensembl.org/"
 header = {"Content-Type": "application/json"}
 socketserver.TCPServer.allow_reuse_address = True
@@ -23,24 +23,20 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
             contents = f.read()
             f.close()
         elif "listSpecies" in self.path:
-            extension = ENDPOINTS
-            r = requests.get(SERVER + extension, headers=header)
+            r = requests.get(SERVER + ENDPOINTS[0], headers=header)
             # -- if not r.ok:r.raise_for_status() sys.exit()
             decode = r.json()
             # -- this exception action is to avoid an error when you write directly the limit in the browser
             # or you only write the request /listSpecies.
             try:
-                if 'json=1' in self.path:
-                    limit = self.path.split("=")[1].split("&")[0]
-                else:
-                    limit = self.path.split("=")[1]
+                limit = self.path.split("=")[1].split("&")[0]
             except IndexError:
                 limit = 199
 
             # -- to avoid a problem when you don't apply a limit.
             if limit == "":
                 limit = len(decode['species'])
-            join = ''
+            join = "<body><h4> LIST OF SPECIES<body><h4>"
 
             # -- to write only the part of the listSpecies that we want from the API
             # as many times as the client decide with the limit parameter.
@@ -49,7 +45,42 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
                     .format(decode['species'][i]['name'], decode['species'][i]['common_name'])
 
             contents = str(join)
+        elif "karyotype" in self.path:
+            specie = self.path.split("=")[1]
+            if specie:
+                r = requests.get(SERVER + ENDPOINTS[1] + specie + '?', headers=header)
 
+                decode = r.json()
+                join = ''
+                if r.ok:
+                    join += "<body><h2>INFORMATION ABOUT THE KARYOTYPE<body><h3>The information of the karyotype" \
+                            " of {} is: {}<body><h3>".format(specie, decode['karyotype'])
+                else:
+                    join = "<body><h3>Sorry, return to the main page because you wrote an incorrect specie's " \
+                           "name<body><h3>"
+            else:
+                join = "<body><h3>Sorry, You aren`t introduced a specie's name, so return to the main page and" \
+                       " please write one<body><h3>"
+            contents = str(join)
+        elif "chromosomeLength" in self.path:
+            specie = self.path.split("=")[1].split("&")[0]
+            print(specie)
+            chromo = self.path.split("&")[1].split("=")[1]
+            print(chromo)
+            if specie and chromo:
+                r = requests.get(SERVER + ENDPOINTS[1] + specie + '/' + chromo + '?', headers=header)
+                decode = r.json()
+                join = ''
+                if r.ok:
+                    join += "<body><h2>INFORMATION ABOUT LENGTH CHROMOSOMES<body><h2>" + "<body><h3>The length of the" \
+                                "{} chromosome of {}'s especie is:<body><h3>{}".format(chromo, specie, decode["length"])
+                else:
+                    join = "<body><h3>Please you wrote wrong the fields of the request, return to the main page" \
+                           " and try again<body><h3>"
+            else:
+                join = "<body><h3>Please you forgot fill all the fields of the request, return to the main page" \
+                       " and try again<body><h3>"
+            contents = str(join)
         else:
             f = open("error.html", 'r')
             contents = f.read()
