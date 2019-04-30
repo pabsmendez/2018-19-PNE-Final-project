@@ -5,7 +5,7 @@ import termcolor
 import requests
 # -- import sys
 PORT = 8000
-ENDPOINTS = "info/species", "info/assembly/"
+ENDPOINTS = "info/species", "info/assembly/", "/xrefs/symbol/homo_sapiens/{}", "/sequence/id/{}?expand=1"
 SERVER = "http://rest.ensembl.org/"
 header = {"Content-Type": "application/json"}
 socketserver.TCPServer.allow_reuse_address = True
@@ -43,7 +43,7 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
             for i in range(int(limit)):
                 join += "<li>" + 'scientific name:{},  \n common name: {}\n\n'\
                     .format(decode['species'][i]['name'], decode['species'][i]['common_name'])
-            join += "\n <a href='/'>link to the home page</a>"
+            join += "<br><br> <a href='/'>link to the home page</a>"
             contents = str(join)
         elif "karyotype" in self.path:
             specie = self.path.split("=")[1]
@@ -57,10 +57,12 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
                             "<body><h3>The information of the karyotype" \
                             " of {} is: {}<body><h3>".format(specie, decode['karyotype'])
                 else:
-                    join = "<body><h3>Sorry, return to the main page because you wrote an incorrect specie's " \
+                    join = "<body><h2>INFORMATION ABOUT THE KARYOTYPE<body><h2><br><br>" \
+                           "<body><h3>Sorry, return to the main page because you wrote an incorrect specie's " \
                            "name<body><h3> <a href='/'>link to the home page</a>"
             else:
-                join = "<body><h3>Sorry, You aren't introduced a specie's name, so return to the main page and" \
+                join = "<body><h2>INFORMATION ABOUT THE KARYOTYPE<body><h2><br><br>" \
+                       "<body><h3>Sorry, You didn't write a specie's name, so return to the main page and" \
                        " please write one<body><h3> <a href='/'>link to the home page</a>"
             contents = str(join)
         elif "chromosomeLength" in self.path:
@@ -73,34 +75,49 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
                 decode = r.json()
                 join = ''
                 if r.ok:
-                    join += "<body><h2>INFORMATION ABOUT LENGTH CHROMOSOMES<body><h2><a href='/'>link to the home " \
+                    join += "<body><h2>INFORMATION ABOUT THE LENGTH OF CHROMOSOMES<body><h2><a href='/'>link " \
+                            "to the home " \
                             "page</a>" + "<body><h3>The length of the" \
-                                " {} chromosome of {}'s specie is:<body><h3>{} "\
-                        .format(chromo, specie, decode["length"])
+                            " {} chromosome of {}'s specie is:<body><h3>{} ".format(chromo, specie, decode["length"])
                 else:
-                    join = "<body><h3>Please you wrote wrong the fields of the request, return to the main page" \
+                    join = "<body><h2>INFORMATION ABOUT THE LENGTH OF CHROMOSOMES<body><h2> <br><br>" \
+                           "<body><h3>Please you wrote wrong the fields of the request, return to the main page" \
                            " and try again<body><h3> <a href='/'>link to the home page</a>"
             else:
-                join = "<body><h3>Please you forgot fill all the fields of the request, return to the main page" \
+                join = "<body><h2>INFORMATION ABOUT THE LENGTH OF CHROMOSOMES<body><h2> <br><br>" \
+                       "<body><h3>Please you forgot fill all the fields of the request, return to the main page" \
                        " and try again<body><h3> <a href='/'>link to the home page</a>"
             contents = str(join)
         elif "geneSeq" in self.path or "geneInfo" in self.path or "geneCalc" in self.path:
             gene = self.path.split("=")[1]
             join = ''
             if gene:
-                r1 = requests.get(SERVER + ENDPOINTS[1].format(gene), headers=header)
+                r1 = requests.get(SERVER + ENDPOINTS[2].format(gene), headers=header)
                 decode = r1.json()
                 id = decode[0]['id']
                 if "geneSeq" in self.path:
-                    r2 = requests.get(SERVER + ENDPOINTS[2].format(id), headers=header)
+                    r2 = requests.get(SERVER + ENDPOINTS[3].format(id), headers=header)
                     id_decode = r2.json()
-                    join = + id_decode['seq']
+                    join += "<body><h1>Human's gene sequence</h1>" \
+                            "<p style='word-break: break-all'>{}</p>".format(id_decode['seq'])
                 elif "geneInfo" in self.path:
-                    r2 = requests.get(SERVER + ENDPOINTS[2].format(id), headers=header)
+                    r2 = requests.get(SERVER + ENDPOINTS[3].format(id), headers=header)
                     id_decode = r2.json()
-                    join = "dd"
+                    print(id_decode)
+                    # -- we should split the id_decode to obtain the necessary iformation
+                    info_needed = id_decode['desc'].split(':')
+                    # -- depend on what we need inside info_needed we used the following variables
+                    chromo = info_needed[3]
+                    start = info_needed[2]
+                    end = info_needed[4]
+                    id = id_decode['id']
+                    length = id_decode['id']
+
+                    join += "<body><h1>Information about human's gene sequence</h1>" \
+                            "Start: {} <br><br> End:{} <br><br> Length: {} <br><br> id: {} <br><br> Chromosome: {}"\
+                        .format(start, end, length, id, chromo)
                 elif "geneCalc" in self.path:
-                    r2 = requests.get(SERVER + ENDPOINTS[2].format(id), headers=header)
+                    r2 = requests.get(SERVER + ENDPOINTS[3].format(id), headers=header)
                     id_decode = r2.json()
                     join = "yy"
                 contents = str(join)
