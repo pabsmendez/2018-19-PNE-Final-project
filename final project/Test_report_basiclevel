@@ -1,0 +1,685 @@
+In this report, it's possible to search the different tests that i tried in my final project.
+    HOME PAGE:
+        Endpoint: http://localhost:8000/
+
+
+    Test of basic level:
+        LIST OF SPECIES:
+            Endpoint: http://localhost:8000/listSpecies?limit=10
+                -  <body><h4> LIST OF SPECIES<body><h4> <a href='/'>link to the home page</a><li>scientific name:mesocricetus_auratus,
+                     common name: Golden Hamster
+
+                    <li>scientific name:homo_sapiens,
+                     common name: human
+
+                    <li>scientific name:monodelphis_domestica,
+                     common name: gray short-tailed opossum
+
+                    <li>scientific name:amphiprion_percula,
+                     common name: orange clownfish
+
+                    <li>scientific name:gadus_morhua,
+                     common name: Atlantic cod
+
+                    <li>scientific name:procavia_capensis,
+                     common name: cape rock hyrax
+
+                    <li>scientific name:dasypus_novemcinctus,
+                     common name: nine-banded armadillo
+
+                    <li>scientific name:mola_mola,
+                     common name: ocean sunfish
+
+                    <li>scientific name:mus_musculus_c57bl6nj,
+                     common name: house mouse
+
+                    <li>scientific name:ursus_maritimus,
+                     common name: Polar bear
+
+                    <br><br> <a href='/'>link to the home page</a>
+            Endpoint: http://localhost:8000/listSpecies
+                -  <body><h4> LIST OF SPECIES<body><h4> <a href='/'>link to the home page</a> <br><br> <li>scientific name:ficedula_albicollis,
+                     common name: Collared flycatcher
+
+                    <br><br> <li>scientific name:castor_canadensis,
+                     common name: American beaver
+
+                    <br><br> <li>scientific name:ciona_intestinalis,
+                     common name: Sea squirt Ciona intestinalis
+
+                    <br><br> <li>scientific name:pogona_vitticeps,
+                     common name: central bearded dragon
+
+                    <br><br> <li>scientific name:manacus_vitellinus,
+                     common name: golden-collared manakin
+
+                    <br><br> <li>scientific name:mus_spicilegus,
+                     common name: steppe mouse
+
+                    <br><br> <li>scientific name:zonotrichia_albicollis,
+                     common name: white-throated sparrow
+
+                    <br><br> <li>scientific name:dipodomys_ordii,
+                     common name: Ord's kangaroo rat
+
+                    <br><br> <li>scientific name:nomascus_leucogenys,
+                     common name: Northern white-cheeked gibbon
+
+                    <br><br> <li>scientific name:mus_musculus_fvbnj,
+                     common name: house mouse
+
+                    <br><br> <li>scientific name:fundulus_heteroclitus,
+                     common name: mummichog
+
+                    <br><br> <li>scientific name:mus_spretus,
+                     common name: algerian mouse
+
+                    <br><br> <li>scientific name:poecilia_reticulata,
+                     common name: guppy
+
+                    <br><br> <li>scientific name:amphiprion_ocellaris,
+                     common name: clown anemonefish
+
+                    <br><br> <li>scientific name:meriones_unguiculatus,
+                     common name: Mongolian gerbil
+
+                    <br><br> <li>scientific name:saccharomyces_cerevisiae,
+                     common name: baker's yeast
+
+                    <br><br> <li>scientific name:paramormyrops_kingsleyae,
+                     common name: Paramormyrops kingsleyae
+
+                    <br><br> <li>scientific name:jaculus_jaculus,
+                     common name: Lesser Egyptian jerboa
+
+                    <br><br> <li>scientific name:mus_musculus_c3hhej,
+                     common name: house mouse
+
+                    <br><br> <li>scientific name:amphiprion_percula,
+                     common name: orange clownfish
+
+                    <br><br> <li>scientific name:erinaceus_europaeus,
+                     common name: western European hedgehog
+
+                    <br><br> <li>scientific name:phascolarctos_cinereus,
+                     common name: koala
+
+                    <br><br> <li>scientific name:acanthochromis_polyacanthus,
+                     common name: spiny chromis
+
+                    <br><br> <li>scientific name:lepidothrix_coronata,
+                     common name: blue-crowned manakin
+
+                    <br><br> <li>scientific name:neovison_vison,
+                     common name: American mink
+
+                    <br><br> <li>scientific name:cavia_porcellus,
+                     common name: domestic guinea pig
+
+                    <br><br> <li>scientific name:equus_caballus,
+                     common name: horse
+
+                    <br><br> <li>scientific name:dasypus_novemcinctus,
+                     common name: nine-banded armadillo
+
+                    <br><br> <li>scientific name:haplochromis_burtoni,
+                     common name: Burton's mouthbrooder
+
+                    <br><br> <li>scientific name:macaca_fascicularis,
+                     common name: Crab-eating macaque
+
+                    <br><br> <li>scientific name:coturnix_japonica,
+                     common name: Japanese quail
+
+                    <br><br> <li>scientific name:melopsittacus_undulatus,
+                     common name: Budgie
+
+                    <br><br> <li>scientific name:heterocephalus_glaber_male,
+                     common name: naked mole-rat
+
+                    <br><br> <li>scientific name:aotus_nancymaae,
+                     common name: Ma's night monkey
+
+                    <br><br> <li>scientific name:ursus_maritimus,
+                     common name: Polar bear
+
+                    <br><br> <li>scientific name:prolemur_simus,
+                     common name: greater bamboo lemur
+
+                    <br><br> <li>scientific name:poecilia_latipinna,
+                     common name: sailfin molly
+
+                    <br><br> <li>scientific name:kryptolebias_marmoratus,
+                     common name: mangrove rivulus
+
+                    <br><br> <li>scientific name:apteryx_haastii,
+                     common name: Great spotted kiwi
+
+                    <br><br> <li>scientific name:salvator_merianae,
+                     common name: Argentine black and white tegu
+
+                    <br><br> <li>scientific name:propithecus_coquereli,
+                     common name: Coquerel's sifaka
+
+                    <br><br> <li>scientific name:equus_asinus_asinus,
+                     common name: donkey
+
+                    <br><br> <li>scientific name:cavia_aperea,
+                     common name: Brazilian guinea pig
+
+                    <br><br> <li>scientific name:anas_platyrhynchos_platyrhynchos,
+                     common name: common mallard
+
+                    <br><br> <li>scientific name:danio_rerio,
+                     common name: zebrafish
+
+                    <br><br> <li>scientific name:peromyscus_maniculatus_bairdii,
+                     common name: Northern American deer mouse
+
+                    <br><br> <li>scientific name:serinus_canaria,
+                     common name: common canary
+
+                    <br><br> <li>scientific name:mesocricetus_auratus,
+                     common name: Golden Hamster
+
+                    <br><br> <li>scientific name:ictalurus_punctatus,
+                     common name: channel catfish
+
+                    <br><br> <li>scientific name:gambusia_affinis,
+                     common name: western mosquitofish
+
+                    <br><br> <li>scientific name:monopterus_albus,
+                     common name: swamp eel
+
+                    <br><br> <li>scientific name:lonchura_striata_domestica,
+                     common name: Bengalese finch
+
+                    <br><br> <li>scientific name:felis_catus,
+                     common name: domestic cat
+
+                    <br><br> <li>scientific name:ornithorhynchus_anatinus,
+                     common name: platypus
+
+                    <br><br> <li>scientific name:apteryx_owenii,
+                     common name: little spotted kiwi
+
+                    <br><br> <li>scientific name:sphenodon_punctatus,
+                     common name: tuatara
+
+                    <br><br> <li>scientific name:poecilia_mexicana,
+                     common name: shortfin molly
+
+                    <br><br> <li>scientific name:drosophila_melanogaster,
+                     common name: fruit fly
+
+                    <br><br> <li>scientific name:sarcophilus_harrisii,
+                     common name: Tasmanian devil
+
+                    <br><br> <li>scientific name:maylandia_zebra,
+                     common name: zebra mbuna
+
+                    <br><br> <li>scientific name:mus_musculus_wsbeij,
+                     common name: western european house mouse
+
+                    <br><br> <li>scientific name:labrus_bergylta,
+                     common name: ballan wrasse
+
+                    <br><br> <li>scientific name:parus_major,
+                     common name: Great Tit
+
+                    <br><br> <li>scientific name:numida_meleagris,
+                     common name: helmeted guineafowl
+
+                    <br><br> <li>scientific name:petromyzon_marinus,
+                     common name: sea lamprey
+
+                    <br><br> <li>scientific name:lepisosteus_oculatus,
+                     common name: Spotted gar
+
+                    <br><br> <li>scientific name:xiphophorus_couchianus,
+                     common name: Monterrey platyfish
+
+                    <br><br> <li>scientific name:nannospalax_galili,
+                     common name: Upper Galilee mountains blind mole rat
+
+                    <br><br> <li>scientific name:ochotona_princeps,
+                     common name: American pika
+
+                    <br><br> <li>scientific name:choloepus_hoffmanni,
+                     common name: Hoffmann's two-fingered sloth
+
+                    <br><br> <li>scientific name:pan_troglodytes,
+                     common name: chimpanzee
+
+                    <br><br> <li>scientific name:saimiri_boliviensis_boliviensis,
+                     common name: Bolivian squirrel monkey
+
+                    <br><br> <li>scientific name:mustela_putorius_furo,
+                     common name: Domestic ferret
+
+                    <br><br> <li>scientific name:gopherus_agassizii,
+                     common name: Agassiz's desert tortoise
+
+                    <br><br> <li>scientific name:urocitellus_parryii,
+                     common name: Arctic ground squirrel
+
+                    <br><br> <li>scientific name:mus_musculus_pwkphj,
+                     common name: eastern european house mouse
+
+                    <br><br> <li>scientific name:oryzias_latipes,
+                     common name: Japanese medaka HdrR
+
+                    <br><br> <li>scientific name:pteropus_vampyrus,
+                     common name: large flying fox
+
+                    <br><br> <li>scientific name:chelonoidis_abingdonii,
+                     common name: Abingdon island giant tortoise
+
+                    <br><br> <li>scientific name:rhinopithecus_bieti,
+                     common name: Black snub-nosed monkey
+
+                    <br><br> <li>scientific name:astyanax_mexicanus,
+                     common name: Mexican tetra
+
+                    <br><br> <li>scientific name:neolamprologus_brichardi,
+                     common name: lyretail cichlid
+
+                    <br><br> <li>scientific name:mus_musculus_casteij,
+                     common name: south eastern house mouse
+
+                    <br><br> <li>scientific name:echinops_telfairi,
+                     common name: small Madagascar hedgehog
+
+                    <br><br> <li>scientific name:taeniopygia_guttata,
+                     common name: zebra finch
+
+                    <br><br> <li>scientific name:loxodonta_africana,
+                     common name: African savanna elephant
+
+                    <br><br> <li>scientific name:cebus_capucinus,
+                     common name: White-headed capuchin
+
+                    <br><br> <li>scientific name:anolis_carolinensis,
+                     common name: green anole
+
+                    <br><br> <li>scientific name:ailuropoda_melanoleuca,
+                     common name: giant panda
+
+                    <br><br> <li>scientific name:spermophilus_dauricus,
+                     common name: Daurian ground squirrel
+
+                    <br><br> <li>scientific name:sus_scrofa,
+                     common name: pig
+
+                    <br><br> <li>scientific name:mus_musculus,
+                     common name: house mouse
+
+                    <br><br> <li>scientific name:mus_musculus_nzohlltj,
+                     common name: house mouse
+
+                    <br><br> <li>scientific name:calidris_pygmaea,
+                     common name: Spoon-billed sandpiper
+
+                    <br><br> <li>scientific name:notamacropus_eugenii,
+                     common name: tammar wallaby
+
+                    <br><br> <li>scientific name:hippocampus_comes,
+                     common name: tiger tail seahorse
+
+                    <br><br> <li>scientific name:bos_taurus,
+                     common name: cattle
+
+                    <br><br> <li>scientific name:bison_bison_bison,
+                     common name: American bison
+
+                    <br><br> <li>scientific name:mus_musculus_aj,
+                     common name: house mouse
+
+                    <br><br> <li>scientific name:oryzias_latipes_hsok,
+                     common name: Japanese medaka HSOK
+
+                    <br><br> <li>scientific name:pan_paniscus,
+                     common name: bonobo
+
+                    <br><br> <li>scientific name:gorilla_gorilla,
+                     common name: Western Lowland Gorilla
+
+                    <br><br> <li>scientific name:dromaius_novaehollandiae,
+                     common name: emu
+
+                    <br><br> <li>scientific name:apteryx_rowi,
+                     common name: Okarito brown kiwi
+
+                    <br><br> <li>scientific name:canis_familiaris,
+                     common name: dog
+
+                    <br><br> <li>scientific name:nothoprocta_perdicaria,
+                     common name: birds
+
+                    <br><br> <li>scientific name:cyprinodon_variegatus,
+                     common name: sheepshead minnow
+
+                    <br><br> <li>scientific name:cricetulus_griseus_picr,
+                     common name: Chinese hamster
+
+                    <br><br> <li>scientific name:vicugna_pacos,
+                     common name: alpaca
+
+                    <br><br> <li>scientific name:cyanistes_caeruleus,
+                     common name: blue tit
+
+                    <br><br> <li>scientific name:mastacembelus_armatus,
+                     common name: zig-zag eel
+
+                    <br><br> <li>scientific name:macaca_nemestrina,
+                     common name: Pig-tailed macaque
+
+                    <br><br> <li>scientific name:mus_caroli,
+                     common name: Ryukyu mouse
+
+                    <br><br> <li>scientific name:colobus_angolensis_palliatus,
+                     common name: Angola colobus
+
+                    <br><br> <li>scientific name:ovis_aries,
+                     common name: Domestic sheep
+
+                    <br><br> <li>scientific name:mandrillus_leucophaeus,
+                     common name: Drill
+
+                    <br><br> <li>scientific name:astatotilapia_calliptera,
+                     common name: eastern happy
+
+                    <br><br> <li>scientific name:oryzias_latipes_hni,
+                     common name: Japanese medaka HNI
+
+                    <br><br> <li>scientific name:gadus_morhua,
+                     common name: Atlantic cod
+
+                    <br><br> <li>scientific name:eptatretus_burgeri,
+                     common name: Inshore hagfish
+
+                    <br><br> <li>scientific name:carlito_syrichta,
+                     common name: Philippine tarsier
+
+                    <br><br> <li>scientific name:oryzias_melastigma,
+                     common name: Indian medaka
+
+                    <br><br> <li>scientific name:cercocebus_atys,
+                     common name: Sooty mangabey
+
+                    <br><br> <li>scientific name:gasterosteus_aculeatus,
+                     common name: three-spined stickleback
+
+                    <br><br> <li>scientific name:poecilia_formosa,
+                     common name: Amazon molly
+
+                    <br><br> <li>scientific name:mus_musculus_dba2j,
+                     common name: house mouse
+
+                    <br><br> <li>scientific name:mus_musculus_c57bl6nj,
+                     common name: house mouse
+
+                    <br><br> <li>scientific name:junco_hyemalis,
+                     common name: dark-eyed junco
+
+                    <br><br> <li>scientific name:cricetulus_griseus_chok1gshd,
+                     common name: Chinese hamster
+
+                    <br><br> <li>scientific name:xenopus_tropicalis,
+                     common name: western clawed frog
+
+                    <br><br> <li>scientific name:canis_lupus_dingo,
+                     common name: dingo
+
+                    <br><br> <li>scientific name:tursiops_truncatus,
+                     common name: bottlenosed dolphin
+
+                    <br><br> <li>scientific name:piliocolobus_tephrosceles,
+                     common name: Ugandan red Colobus
+
+                    <br><br> <li>scientific name:pygocentrus_nattereri,
+                     common name: red-bellied piranha
+
+                    <br><br> <li>scientific name:microcebus_murinus,
+                     common name: gray mouse lemur
+
+                    <br><br> <li>scientific name:amphilophus_citrinellus,
+                     common name: Midas cichlid
+
+                    <br><br> <li>scientific name:caenorhabditis_elegans,
+                     common name: C.elegans
+
+                    <br><br> <li>scientific name:tetraodon_nigroviridis,
+                     common name: spotted green pufferfish
+
+                    <br><br> <li>scientific name:pundamilia_nyererei,
+                     common name: Makobe Island cichlid
+
+                    <br><br> <li>scientific name:xiphophorus_maculatus,
+                     common name: southern platyfish
+
+                    <br><br> <li>scientific name:mus_pahari,
+                     common name: Shrew mouse
+
+                    <br><br> <li>scientific name:cricetulus_griseus_crigri,
+                     common name: Chinese hamster
+
+                    <br><br> <li>scientific name:chinchilla_lanigera,
+                     common name: Long-tailed chinchilla
+
+                    <br><br> <li>scientific name:procavia_capensis,
+                     common name: cape rock hyrax
+
+                    <br><br> <li>scientific name:mus_musculus_balbcj,
+                     common name: house mouse
+
+                    <br><br> <li>scientific name:heterocephalus_glaber_female,
+                     common name: naked mole-rat
+
+                    <br><br> <li>scientific name:calidris_pugnax,
+                     common name: ruff
+
+                    <br><br> <li>scientific name:chlorocebus_sabaeus,
+                     common name: African green monkey
+
+                    <br><br> <li>scientific name:capra_hircus,
+                     common name: Goat
+
+                    <br><br> <li>scientific name:otolemur_garnettii,
+                     common name: small-eared galago
+
+                    <br><br> <li>scientific name:latimeria_chalumnae,
+                     common name: coelacanth
+
+                    <br><br> <li>scientific name:anser_brachyrhynchus,
+                     common name: pink-footed goose
+
+                    <br><br> <li>scientific name:macaca_mulatta,
+                     common name: rhesus monkey
+
+                    <br><br> <li>scientific name:callithrix_jacchus,
+                     common name: white-tufted-ear marmoset
+
+                    <br><br> <li>scientific name:scophthalmus_maximus,
+                     common name: turbot
+
+                    <br><br> <li>scientific name:periophthalmus_magnuspinnatus,
+                     common name: Periophthalmus magnuspinnatus
+
+                    <br><br> <li>scientific name:pelodiscus_sinensis,
+                     common name: Chinese softshell turtle
+
+                    <br><br> <li>scientific name:panthera_pardus,
+                     common name: leopard
+
+                    <br><br> <li>scientific name:octodon_degus,
+                     common name: Degu
+
+                    <br><br> <li>scientific name:anabas_testudineus,
+                     common name: climbing perch
+
+                    <br><br> <li>scientific name:cynoglossus_semilaevis,
+                     common name: tongue sole
+
+                    <br><br> <li>scientific name:notechis_scutatus,
+                     common name: mainland tiger snake
+
+                    <br><br> <li>scientific name:mus_musculus_cbaj,
+                     common name: house mouse
+
+                    <br><br> <li>scientific name:oreochromis_niloticus,
+                     common name: Nile tilapia
+
+                    <br><br> <li>scientific name:theropithecus_gelada,
+                     common name: gelada
+
+                    <br><br> <li>scientific name:microtus_ochrogaster,
+                     common name: vole
+
+                    <br><br> <li>scientific name:takifugu_rubripes,
+                     common name: torafugu
+
+                    <br><br> <li>scientific name:crocodylus_porosus,
+                     common name: Australian saltwater crocodile
+
+                    <br><br> <li>scientific name:oryctolagus_cuniculus,
+                     common name: rabbit
+
+                    <br><br> <li>scientific name:bos_mutus,
+                     common name: wild yak
+
+                    <br><br> <li>scientific name:vulpes_vulpes,
+                     common name: red fox
+
+                    <br><br> <li>scientific name:stegastes_partitus,
+                     common name: bicolor damselfish
+
+                    <br><br> <li>scientific name:sorex_araneus,
+                     common name: European shrew
+
+                    <br><br> <li>scientific name:mus_musculus_akrj,
+                     common name: house mouse
+
+                    <br><br> <li>scientific name:seriola_dumerili,
+                     common name: greater amberjack
+
+                    <br><br> <li>scientific name:gallus_gallus,
+                     common name: chicken
+
+                    <br><br> <li>scientific name:mus_musculus_nodshiltj,
+                     common name: house mouse
+
+                    <br><br> <li>scientific name:chrysemys_picta_bellii,
+                     common name: Western painted turtle
+
+                    <br><br> <li>scientific name:papio_anubis,
+                     common name: Olive baboon
+
+                    <br><br> <li>scientific name:marmota_marmota_marmota,
+                     common name: Alpine marmot
+
+                    <br><br> <li>scientific name:pongo_abelii,
+                     common name: Bornean orangutan
+
+                    <br><br> <li>scientific name:scleropages_formosus,
+                     common name: Asian bonytongue
+
+                    <br><br> <li>scientific name:ictidomys_tridecemlineatus,
+                     common name: thirteen-lined ground squirrel
+
+                    <br><br> <li>scientific name:ciona_savignyi,
+                     common name: Sea squirt Ciona savignyi
+
+                    <br><br> <li>scientific name:rhinopithecus_roxellana,
+                     common name: Golden snub-nosed monkey
+
+                    <br><br> <li>scientific name:esox_lucius,
+                     common name: northern pike
+
+                    <br><br> <li>scientific name:meleagris_gallopavo,
+                     common name: domestic turkey
+
+                    <br><br> <li>scientific name:mus_musculus_lpj,
+                     common name: house mouse
+
+                    <br><br> <li>scientific name:fukomys_damarensis,
+                     common name: Damara mole rat
+
+                    <br><br> <li>scientific name:panthera_tigris_altaica,
+                     common name: Tiger
+
+                    <br><br> <li>scientific name:seriola_lalandi_dorsalis,
+                     common name: yellowtail amberjack
+
+                    <br><br> <li>scientific name:mola_mola,
+                     common name: ocean sunfish
+
+                    <br><br> <li>scientific name:ursus_americanus,
+                     common name: American black bear
+
+                    <br><br> <li>scientific name:tupaia_belangeri,
+                     common name: northern tree shrew
+
+                    <br><br> <li>scientific name:monodelphis_domestica,
+                     common name: gray short-tailed opossum
+
+                    <br><br> <li>scientific name:rattus_norvegicus,
+                     common name: Norway rat
+
+                    <br><br> <li>scientific name:mus_musculus_129s1svimj,
+                     common name: house mouse
+
+                    <br><br> <li>scientific name:homo_sapiens,
+                     common name: human
+
+                    <br><br> <li>scientific name:myotis_lucifugus,
+                     common name: little brown bat
+
+                    <br><br> <a href='/'>link to the home page</a>
+            Endpoint: http://localhost:8000/listSpecies?limit=2
+                - <body><h4> LIST OF SPECIES<body><h4> <a href='/'>link to the home page</a> <br><br> <li>scientific name:mesocricetus_auratus,
+                     common name: Golden Hamster
+
+                    <br><br> <li>scientific name:homo_sapiens,
+                     common name: human
+
+                    <br><br> <a href='/'>link to the home page</a>
+        KARIOTYPE:
+            Endpoint: http://localhost:8000/karyotype?specie=mouse
+                - <body><h2>INFORMATION ABOUT THE KARYOTYPE<body><h2><a href='/'>link to the home page</a><body><h3>The
+                    information of the karyotype of mouse is: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', 'X', 'Y', 'MT']<body><h3>
+
+            Endpoint: http://localhost:8000/karyotype?specie=human
+                - <body><h2>INFORMATION ABOUT THE KARYOTYPE<body><h2><a href='/'>link to the home page</a><body><h3>The information of the karyotype of human is: ['1', '2', '3', '4', '5', '6', '7', '8',
+                    '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', 'X', 'Y', 'MT']<body><h3>
+
+            Endpoint: http://localhost:8000/karyotype?specie=dog
+                - <body><h2>INFORMATION ABOUT THE KARYOTYPE<body><h2><a href='/'>link to the home page</a><body><h3>The information of the karyotype of dog is: ['1', '2', '3', '4', '5', '6', '7', '8',
+                    '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', 'X', 'MT']<body><h3>
+
+            If you submit an empty specie's value:
+            Endpoint: http://localhost:8000/karyotype?specie=
+                -<body><h2>INFORMATION ABOUT THE KARYOTYPE<body><h2><br><br><body><h3>Sorry, You didn't write a specie's name, so return to the main page and please write one<body><h3> <a href='/'>link to the home page</a>
+
+            If you submit a wrong specie's value:
+            Endpoint: http://localhost:8000/karyotype?specie=dogs
+                -<body><h2>INFORMATION ABOUT THE KARYOTYPE<body><h2><br><br><body><h3>Sorry, return to the main page because you wrote an incorrect specie's name<body><h3> <a href='/'>link to the home page</a>
+
+        CHROMOSOME LENGTH:
+            Endpoint: http://localhost:8000/chromosomeLength?specie=mouse&chromo=18
+                - <body><h2>INFORMATION ABOUT THE LENGTH OF CHROMOSOMES<body><h2><a href='/'>link to the home page</a><body><h3>The length of the 18 chromosome of mouse's specie is:<body><h3>90702639
+
+            Endpoint: http://localhost:8000/chromosomeLength?specie=human&chromo=Y
+                - <body><h2>INFORMATION ABOUT THE LENGTH OF CHROMOSOMES<body><h2><a href='/'>link to the home page</a><body><h3>The length of the Y chromosome of human's specie is:<body><h3>57227415
+
+            If you submit any empty value:
+            Endpoint: http://localhost:8000/chromosomeLength?specie=human&chromo=
+                - <body><h2>INFORMATION ABOUT THE LENGTH OF CHROMOSOMES<body><h2> <br><br><body><h3>Please you forgot fill all the fields of the request, return to the main page and try again<body><h3> <a href='/'>link to the home page</a>
+
+            Endpoint: http://localhost:8000/chromosomeLength?specie=&chromo=Y
+                - <body><h2>INFORMATION ABOUT THE LENGTH OF CHROMOSOMES<body><h2> <br><br><body><h3>Please you forgot fill all the fields of the request, return to the main page and try again<body><h3> <a href='/'>link to the home page</a>
+
+            If you submit any wrong value:
+            Endpoints: http://localhost:8000/chromosomeLength?specie=Dogs&chromo=Y
+                - <body><h2>INFORMATION ABOUT THE LENGTH OF CHROMOSOMES<body><h2> <br><br><body><h3>Please you wrote wrong the fields of the request, return to the main page and try again<body><h3> <a href='/'>link to the home page</a>
+ 
