@@ -18,11 +18,11 @@
     <title>ENSEMBLE PROJECT</title>
   </head>
   <body style="background-color: SeaGreen" >
-  <h1>Final project for programming in enviroments network by Pablo Gomez de Salazar Mendez</h1>
+  <h1>Final project for programming in enviromental networks by Pablo Gomez de Salazar Mendez</h1>
     <form action="listSpecies" method="get">
       This option returns the list of the species, if you want you can limit the number.
       <br><br>
-      Please, how many species do you want? (limit is optional) <input type="number" name="limit" max="199" min="0">
+      Please, how many species do you want? (limit is optional) <input type="number" name="limit" max="199" min="1">
       <input type="submit">
       <br><br>
       </form>
@@ -34,9 +34,16 @@
       <br><br>
     </form>
    <form action="chromosomeLength" method="get">
-      What karyotype do you want??, please enter the specie that you want obtain the karyotype
+      What karyotype do you want??, please enter the specie that you want obtain the karyotype:
       <br><br>
       Name of the specie: <input type="text" name="specie"> <input type="text" name="chromo">
+      <input type="submit">
+      <br><br>
+    </form>
+    <form action="geneSeq" method="get">
+      What geneSeq do you want??, please enter the gene that you want obtain the sequence:
+      <br><br>
+      Name of the gene: <input type="text" name="gene">
       <input type="submit">
       <br><br>
     </form>
