@@ -20,7 +20,7 @@ In this report, it's possible to search the different tests that i tried in my f
                     <meta charset="utf-8">
                     <title>ENSEMBLE PROJECT</title>
                   </head>
-                  <body style="background-color: SeaGreen" >
+                  <body style="background-color: MidnightBlue" >
                   <h1>Final project for programming in enviromental networks by Pablo Gomez de Salazar Mendez</h1>
                     <form action="listSpecies" method="get">
                       This option returns the list of the species, if you want you can limit the number.
@@ -39,7 +39,9 @@ In this report, it's possible to search the different tests that i tried in my f
                    <form action="chromosomeLength" method="get">
                       What karyotype do you want??, please enter the specie that you want obtain the karyotype:
                       <br><br>
-                      Name of the specie: <input type="text" name="specie"> <input type="text" name="chromo">
+                      Name of the specie or chromosome (write one of theme): <input type="text" name="specie"> <br><br>
+                       Name of the specie or chromosome (write the other one)
+                       <input type="text" name="chromo">
                       <input type="submit">
                       <br><br>
                     </form>
@@ -75,7 +77,6 @@ In this report, it's possible to search the different tests that i tried in my f
                     </form>
                   </body>
                 </html>
-
 
     Test of basic level:
         LIST OF SPECIES:
