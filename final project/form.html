@@ -17,7 +17,7 @@
     <meta charset="utf-8">
     <title>ENSEMBLE PROJECT</title>
   </head>
-  <body style="background-color: SeaGreen" >
+  <body style="background-color: MidnightBlue" >
   <h1>Final project for programming in enviromental networks by Pablo Gomez de Salazar Mendez</h1>
     <form action="listSpecies" method="get">
       This option returns the list of the species, if you want you can limit the number.
@@ -36,7 +36,9 @@
    <form action="chromosomeLength" method="get">
       What karyotype do you want??, please enter the specie that you want obtain the karyotype:
       <br><br>
-      Name of the specie: <input type="text" name="specie"> <input type="text" name="chromo">
+      Name of the specie or chromosome (write one of theme): <input type="text" name="specie"> <br><br>
+       Name of the specie or chromosome (write the other one)
+       <input type="text" name="chromo">
       <input type="submit">
       <br><br>
     </form>
@@ -44,6 +46,29 @@
       What geneSeq do you want??, please enter the gene that you want obtain the sequence:
       <br><br>
       Name of the gene: <input type="text" name="gene">
+      <input type="submit">
+      <br><br>
+    </form>
+  <form action="geneInfo" method="get">
+      What geneInfo do you want??, please enter the gene that you want obtain the sequence:
+      <br><br>
+      Name of the gene: <input type="text" name="gene">
+      <input type="submit">
+      <br><br>
+    </form>
+  <form action="geneCalc" method="get">
+      What geneCalc do you want??, please enter the gene that you want obtain the sequence:
+      <br><br>
+      Name of the gene: <input type="text" name="gene">
+      <input type="submit">
+      <br><br>
+    </form>
+  <form action="geneList" method="get">
+      What geneList do you want??, please enter the elements needed that you want obtain:
+      <br><br>
+      Chromo: <input type="text" name="chromo"> <br><br>
+      Start: <input type="number" name="start"> <br><br>
+      End: <input type="number" name="end">
       <input type="submit">
       <br><br>
     </form>
