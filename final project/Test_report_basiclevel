@@ -1,6 +1,80 @@
 In this report, it's possible to search the different tests that i tried in my final project.
     HOME PAGE:
         Endpoint: http://localhost:8000/
+            - <!DOCTYPE html>
+
+                <html lang="en" dir="ltr">
+
+                  <head>
+                    <style>
+                      table{
+                      background-color:
+                      }
+                      form{
+                      color: white
+                      }
+                      h1{
+                      color: white
+                      }
+                    </style>
+                    <meta charset="utf-8">
+                    <title>ENSEMBLE PROJECT</title>
+                  </head>
+                  <body style="background-color: SeaGreen" >
+                  <h1>Final project for programming in enviromental networks by Pablo Gomez de Salazar Mendez</h1>
+                    <form action="listSpecies" method="get">
+                      This option returns the list of the species, if you want you can limit the number.
+                      <br><br>
+                      Please, how many species do you want? (limit is optional) <input type="number" name="limit" max="199" min="1">
+                      <input type="submit">
+                      <br><br>
+                      </form>
+                    <form action="karyotype" method="get">
+                      What karyotype do you want??, please enter the specie that you want obtain the karyotype
+                      <br><br>
+                      Name of the specie: <input type="text" name="specie">
+                      <input type="submit">
+                      <br><br>
+                    </form>
+                   <form action="chromosomeLength" method="get">
+                      What karyotype do you want??, please enter the specie that you want obtain the karyotype:
+                      <br><br>
+                      Name of the specie: <input type="text" name="specie"> <input type="text" name="chromo">
+                      <input type="submit">
+                      <br><br>
+                    </form>
+                    <form action="geneSeq" method="get">
+                      What geneSeq do you want??, please enter the gene that you want obtain the sequence:
+                      <br><br>
+                      Name of the gene: <input type="text" name="gene">
+                      <input type="submit">
+                      <br><br>
+                    </form>
+                  <form action="geneInfo" method="get">
+                      What geneInfo do you want??, please enter the gene that you want obtain the sequence:
+                      <br><br>
+                      Name of the gene: <input type="text" name="gene">
+                      <input type="submit">
+                      <br><br>
+                    </form>
+                  <form action="geneCalc" method="get">
+                      What geneCalc do you want??, please enter the gene that you want obtain the sequence:
+                      <br><br>
+                      Name of the gene: <input type="text" name="gene">
+                      <input type="submit">
+                      <br><br>
+                    </form>
+                  <form action="geneList" method="get">
+                      What geneList do you want??, please enter the elements needed that you want obtain:
+                      <br><br>
+                      Chromo: <input type="text" name="chromo"> <br><br>
+                      Start: <input type="number" name="start"> <br><br>
+                      End: <input type="number" name="end">
+                      <input type="submit">
+                      <br><br>
+                    </form>
+                  </body>
+                </html>
 
 
     Test of basic level:
@@ -671,6 +745,9 @@ In this report, it's possible to search the different tests that i tried in my f
 
             Endpoint: http://localhost:8000/chromosomeLength?specie=human&chromo=Y
                 - <body><h2>INFORMATION ABOUT THE LENGTH OF CHROMOSOMES<body><h2><a href='/'>link to the home page</a><body><h3>The length of the Y chromosome of human's specie is:<body><h3>57227415
+            if you change the position of specie and chromo:
+            Endpoint: http://localhost:8000/chromosomeLength?chromo=18&specie=mouse
+                -<body><h2>INFORMATION ABOUT THE LENGTH OF CHROMOSOMES<body><h2><a href='/'>link to the home page</a><body><h3>The length of the 18 chromosome of mouse's specie is:<body><h3>90702639
 
             If you submit any empty value:
             Endpoint: http://localhost:8000/chromosomeLength?specie=human&chromo=
@@ -682,4 +759,3 @@ In this report, it's possible to search the different tests that i tried in my f
             If you submit any wrong value:
             Endpoints: http://localhost:8000/chromosomeLength?specie=Dogs&chromo=Y
                 - <body><h2>INFORMATION ABOUT THE LENGTH OF CHROMOSOMES<body><h2> <br><br><body><h3>Please you wrote wrong the fields of the request, return to the main page and try again<body><h3> <a href='/'>link to the home page</a>
- 
