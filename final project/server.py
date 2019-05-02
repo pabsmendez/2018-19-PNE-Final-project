@@ -87,7 +87,7 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
                             "to the home " \
                             "page</a>" + "<body><h3>The length of the" \
                             " {} chromosome of {}'s specie is:<body><h3>{} ".format(chromo, specie, decode["length"])
-                # -- If the order of the request is correct and related to the "r" value.
+                # -- If the order of the request is correct and related to the "r1" value.
                 elif r1.ok:
                     join += "<body><h2>INFORMATION ABOUT THE LENGTH OF CHROMOSOMES<body><h2><a href='/'>link " \
                             "to the home " \
