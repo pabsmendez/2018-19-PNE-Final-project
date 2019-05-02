@@ -1,4 +1,4 @@
-In this report, it's possible to search the different tests that i tried in my final project.
+In this report, it's possible to search the different tests that i tried in my basic level of my final project.
     HOME PAGE:
         Endpoint: http://localhost:8000/
             - <!DOCTYPE html>
@@ -76,6 +76,34 @@ In this report, it's possible to search the different tests that i tried in my f
       <br><br>
     </form>
   </body>
+</html>
+
+    Wrong endpoint: http://localhost:8000/hola
+        - <!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <title>ERROR</title>
+    </head>
+    <body style="background-color: red;">
+        <h1>Welcome to the error page.</h1>
+        <p>Ohh!!! If you are here it is because you entered an incorrect endpoint</p>
+        <a href="/">link to the home (form) page</a>
+    </body>
+</html>
+
+    Wrong endpoint: http://localhost:8000/mundo
+        - <!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <title>ERROR</title>
+    </head>
+    <body style="background-color: red;">
+        <h1>Welcome to the error page.</h1>
+        <p>Ohh!!! If you are here it is because you entered an incorrect endpoint</p>
+        <a href="/">link to the home (form) page</a>
+    </body>
 </html>
 
     Test of basic level:
