@@ -1,4 +1,4 @@
-In this report, it's possible to search the different tests that i tried in my final project.
+In this report, it's possible to search the different tests that i tried in my medium level of my final project.
     Test of medium level:
         geneSeq:
             Endpoint: http://localhost:8000/geneSeq?gene=FRAT1
