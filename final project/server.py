@@ -3,7 +3,7 @@ import socketserver
 from seq import Seq
 import termcolor
 import requests
-# -- import sys
+
 PORT = 8000
 ENDPOINTS = "info/species", "info/assembly/", "/xrefs/symbol/homo_sapiens/{}", "/sequence/id/{}?expand=1", \
             "/overlap/region/human/{}:{}-{}?feature=gene"
@@ -25,7 +25,6 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
             f.close()
         elif "listSpecies" in self.path:
             r = requests.get(SERVER + ENDPOINTS[0], headers=header)
-            # -- if not r.ok:r.raise_for_status() sys.exit()
             decode = r.json()
             # -- this exception action is to avoid an error when you write directly the limit in the browser
             # or you only write the request /listSpecies.
@@ -81,13 +80,13 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
                 decode = r.json()
                 decode1 = r1.json()
                 join = ''
-                # -- If the order of the request is correct and related to the "r" value.
+                # -- If the request is correct and the order of it is related to the "r" value.
                 if r.ok:
                     join += "<body><h2>INFORMATION ABOUT THE LENGTH OF CHROMOSOMES<body><h2><a href='/'>link " \
                             "to the home " \
                             "page</a>" + "<body><h3>The length of the" \
                             " {} chromosome of {}'s specie is:<body><h3>{} ".format(chromo, specie, decode["length"])
-                # -- If the order of the request is correct and related to the "r1" value.
+                # -- If the request is correct and the order of it is related to the "r1" value.
                 elif r1.ok:
                     join += "<body><h2>INFORMATION ABOUT THE LENGTH OF CHROMOSOMES<body><h2><a href='/'>link " \
                             "to the home " \
@@ -126,7 +125,7 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
                         r2 = requests.get(SERVER + ENDPOINTS[3].format(idd), headers=header)
                         id_decode = r2.json()
                         print(id_decode)
-                        # -- we should split the id_decode to obtain the necessary iformation
+                        # -- we should split the id_decode to obtain the necessary information
                         info_needed = id_decode['desc'].split(':')
                         # -- depend on what we need inside info_needed we used the following variables
                         chromo = info_needed[2]
@@ -156,6 +155,7 @@ class TestHandler(http.server.BaseHTTPRequestHandler):
                 # -- If you entered a wrong value
                 else:
                     join = "Sorry, you entered a wrong gene <br><br><a href='/'>link to the home page</a><br><br>"
+            # -- If you entered an empty value
             else:
                 join = "Sorry, you entered a empty name gene <br><br><a href='/'>link to the home page</a><br><br>"
 
